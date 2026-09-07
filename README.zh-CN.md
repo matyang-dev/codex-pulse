@@ -4,7 +4,7 @@
 
 原生 macOS 桌面小组件：并排展示 **5 小时已用量、本周已用量**，分别显示重置倒计时，超过一天明确显示天数。
 
-[下载 v0.1.3](https://github.com/matyang-dev/codex-pulse/releases/tag/v0.1.3) · [English](README.md) · [安装与排查](docs/INSTALL.md) · [隐私与安全](SECURITY.md)
+[下载 v0.1.4](https://github.com/matyang-dev/codex-pulse/releases/tag/v0.1.4) · [English](README.md) · [安装与排查](docs/INSTALL.md) · [隐私与安全](SECURITY.md)
 
 ![中文原生组件，两个已用百分比及带天数的重置倒计时](docs/images/medium-zh.png)
 
@@ -19,7 +19,7 @@
 - 原生 WidgetKit，小号和中号，跟随系统显示中英文。
 - 本机只读服务，Node 内置模块即可，不需要 Electron、网页开发服务器或额外 API Key。
 - 无数据显示 `—`，旧数据显示“缓存”，不使用演示数字冒充实时数据。
-- Tibo 重置信号雷达可选、默认关闭；文本规则判断，不是 AI 预测，也不代表账户已重置。
+- Tibo 重置信号雷达可选、默认关闭；每条动态显示本地日期和时间，使用文本规则判断，不是 AI 预测，也不代表账户已重置。
 
 如果它也解决了你的问题，欢迎给一个 ⭐；安装反馈和可复现的 bug 同样有帮助。
 
@@ -27,7 +27,7 @@
 
 **下载 → 打开 → 启用本机服务 → 添加组件。无需另装 Xcode 或 Node。**
 
-[下载 v0.1.3（DMG / ZIP）](https://github.com/matyang-dev/codex-pulse/releases/tag/v0.1.3)
+[下载 v0.1.4（DMG / ZIP）](https://github.com/matyang-dev/codex-pulse/releases/tag/v0.1.4)
 
 > **这是未公证的预发布版。** 文件名中的 `unsigned` 表示没有 Apple Developer ID 签名，仅有临时签名。macOS 可能阻止首次打开；仅在信任下载来源时按[安装指南](docs/INSTALL.md)批准此应用。Intel 实机和全新 Mac 安装仍待验证。
 

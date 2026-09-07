@@ -1,3 +1,4 @@
+import Foundation
 import SwiftUI
 import WidgetKit
 
@@ -6,6 +7,17 @@ private let widgetKind = "CodexPulseUsageWidget"
 enum PulseText {
     static var chinese: Bool { Locale.preferredLanguages.first?.hasPrefix("zh") == true }
     static func t(_ english: String, _ chinese: String) -> String { self.chinese ? chinese : english }
+
+    static func signalTimestamp(_ raw: String) -> String {
+        guard let date = ISO8601DateFormatter().date(from: raw) else {
+            return String(raw.prefix(16)).replacingOccurrences(of: "T", with: " ")
+        }
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: chinese ? "zh_CN" : "en_US_POSIX")
+        formatter.timeZone = .current
+        formatter.dateFormat = chinese ? "yyyy年M月d日 HH:mm" : "MMM d, yyyy HH:mm"
+        return formatter.string(from: date)
+    }
 }
 
 struct RateWindow: Codable {
@@ -111,7 +123,7 @@ enum PulseLoader {
             } else if let signal = feed.signals?.first {
                 payload.signalLabel = feed.stale ? PulseText.t("Radar cached", "雷达缓存") : (signal.resetAnalysis.level == "reported" ? PulseText.t("Reset reported", "动态称已重置") : PulseText.t("Possible reset", "可能涉及重置"))
                 payload.signalText = signal.text
-                payload.signalReason = String(signal.at.prefix(10)) + " · " + PulseText.t("Text heuristic, not account confirmation.", "文本规则判断，不代表你的账户已重置。")
+                payload.signalReason = PulseText.t("Posted ", "发布于 ") + PulseText.signalTimestamp(signal.at) + " · " + PulseText.t("Text heuristic, not account confirmation.", "文本规则判断，不代表你的账户已重置。")
                 if let url = URL(string: signal.url), url.scheme == "https", ["x.com", "twitter.com"].contains(url.host ?? "") { payload.signalURL = url }
             } else {
                 payload.signalLabel = PulseText.t("No recent signal", "暂无近期信号")
@@ -293,7 +305,7 @@ struct SmallWidgetView: View {
                 Image(systemName: "antenna.radiowaves.left.and.right")
                 Text(payload.signalLabel).lineLimit(1)
             }
-            .font(.system(size: 9, weight: .semibold))
+            .font(.system(size: 10, weight: .semibold))
             .foregroundStyle(.purple.opacity(0.98))
         }
         .padding(12)
@@ -314,7 +326,7 @@ struct MediumWidgetView: View {
             VStack(alignment: .leading, spacing: 5) {
                 HStack {
                     Text("TIBO RESET RADAR")
-                        .font(.system(size: 9, weight: .bold))
+                        .font(.system(size: 10, weight: .bold))
                         .foregroundStyle(WidgetPalette.secondary)
                     Spacer()
                     Circle()
@@ -323,25 +335,25 @@ struct MediumWidgetView: View {
                 }
 
                 Text(payload.signalLabel)
-                    .font(.system(size: 11, weight: .bold))
+                    .font(.system(size: 12, weight: .bold))
                     .foregroundStyle(.purple)
                     .padding(.horizontal, 7)
                     .padding(.vertical, 5)
                     .background(.purple.opacity(0.22), in: Capsule())
 
                 Text(payload.signalText)
-                    .font(.system(size: 12, weight: .medium))
+                    .font(.system(size: 13, weight: .medium))
                     .foregroundStyle(WidgetPalette.body)
                     .lineLimit(4)
 
                 Text(payload.signalReason)
-                    .font(.system(size: 9))
+                    .font(.system(size: 10))
                     .foregroundStyle(WidgetPalette.secondary)
                     .lineLimit(3)
 
                 Spacer()
                 Text(PulseText.t("Third-party feed · not official", "第三方信号源 · 非官方"))
-                    .font(.system(size: 8))
+                    .font(.system(size: 9))
                     .foregroundStyle(WidgetPalette.tertiary)
             }
             .frame(maxWidth: .infinity, alignment: .leading)

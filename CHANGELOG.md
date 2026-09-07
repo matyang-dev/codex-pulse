@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4 — dated Tibo signals
+
+- Show each selected X post's local date and time in the Tibo reset radar.
+- Enlarged the Tibo radar title, label, message, timestamp and footer typography again in both languages.
+
 ## 0.1.3 — clearer Tibo radar typography
 
 - Enlarged the Tibo reset radar title, status label, message, reason and footer text.

@@ -30,7 +30,7 @@ export function filterSignals(data, now = Date.now()) {
 
 export async function fetchSocial() {
   const response = await fetch(FEED_URL, {
-    headers: { Accept: 'application/json', 'User-Agent': 'Codex-Pulse/0.1.3' },
+    headers: { Accept: 'application/json', 'User-Agent': 'Codex-Pulse/0.1.4' },
     signal: AbortSignal.timeout(10000), redirect: 'error',
   });
   if (!response.ok) throw new Error('Public feed unavailable.');

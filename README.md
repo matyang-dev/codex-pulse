@@ -4,7 +4,7 @@
 
 A native macOS desktop widget for **5-hour and weekly usage**, with separate reset countdowns — days included.
 
-[Download v0.1.3](https://github.com/matyang-dev/codex-pulse/releases/tag/v0.1.3) · [简体中文](README.zh-CN.md) · [Install](#quick-start) · [Security](SECURITY.md) · [Contribute](CONTRIBUTING.md)
+[Download v0.1.4](https://github.com/matyang-dev/codex-pulse/releases/tag/v0.1.4) · [简体中文](README.zh-CN.md) · [Install](#quick-start) · [Security](SECURITY.md) · [Contribute](CONTRIBUTING.md)
 
 ![Codex Pulse native widget showing two usage percentages and separate reset countdowns](docs/images/hero-en.png)
 
@@ -26,7 +26,7 @@ Codex Pulse keeps the answer small, readable, and on the desktop.
 - **Native SwiftUI + WidgetKit:** small and medium widgets; English and Simplified Chinese follow your system language.
 - **Read-only local bridge:** Node.js built-ins only. No Electron, web development server, telemetry, or extra API key.
 - **Honest missing-data states:** unavailable values show `—`; cached values are labeled, never replaced by demo percentages.
-- **Optional reset radar:** recent public posts from @thsottiaux, filtered with transparent text rules. Off by default. Not an official announcement service.
+- **Optional reset radar:** recent public posts from @thsottiaux, filtered with transparent text rules and shown with each post's local date and time. Off by default. Not an official announcement service.
 
 If this saves you a few trips to the usage page, a ⭐ helps other Codex users find it. Useful bug reports help even more.
 
@@ -34,7 +34,7 @@ If this saves you a few trips to the usage page, a ⭐ helps other Codex users f
 
 **Download, open, enable the bridge, add your widget. No Xcode or Node installation needed.**
 
-[Download v0.1.3 — DMG or ZIP](https://github.com/matyang-dev/codex-pulse/releases/tag/v0.1.3)
+[Download v0.1.4 — DMG or ZIP](https://github.com/matyang-dev/codex-pulse/releases/tag/v0.1.4)
 
 > **Unnotarized prerelease:** the `unsigned` downloads have an ad-hoc signature, not an Apple Developer ID signature. macOS may block first launch. Only approve this specific app if you trust the download; see [first-launch guidance](docs/INSTALL.md). Intel and clean-Mac installation still need validation.
 

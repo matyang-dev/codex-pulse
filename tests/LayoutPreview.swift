@@ -25,7 +25,7 @@ struct LayoutPreview {
         payload.updatedAt = now
         payload.isLive = true
         payload.signalText = PulseText.t("Demo post: a possible reset is being discussed for tomorrow.", "演示动态：讨论明天可能发生的重置。")
-        payload.signalReason = PulseText.t("Synthetic example · not an announcement.", "示例内容，不是真实公告。")
+        payload.signalReason = PulseText.t("Posted Sep 7, 2026 14:35 · Synthetic example · not an announcement.", "发布于 2026年9月7日 14:35 · 示例内容，不是真实公告。")
         var demo = payload
         demo.fiveHourUsed = 38
         demo.weeklyUsed = 64
