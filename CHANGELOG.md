@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.5 — reliable local post times
+
+- Parse fractional-second X timestamps and display them in the user's local timezone.
+- Keep the dated Tibo radar and enlarged bilingual typography from v0.1.4.
+
 ## 0.1.4 — dated Tibo signals
 
 - Show each selected X post's local date and time in the Tibo reset radar.

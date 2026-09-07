@@ -16,6 +16,8 @@ struct LayoutPreview {
             precondition(ResetDuration.text(until: now.addingTimeInterval(Double(seconds)), from: now) == PulseText.t(en, zh))
         }
         precondition(ResetDuration.text(until: nil, from: now) == PulseText.t("No data", "暂无数据"))
+        let formattedSignal = PulseText.signalTimestamp("2026-09-07T09:40:31.000Z")
+        precondition(formattedSignal.contains("2026") && formattedSignal.contains("40"))
         print("Passed countdown boundary tests")
         var payload = WidgetPayload.placeholder
         payload.fiveHourReset = now.addingTimeInterval(17_940) // 4h 59m

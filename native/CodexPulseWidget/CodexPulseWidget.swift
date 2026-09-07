@@ -9,7 +9,10 @@ enum PulseText {
     static func t(_ english: String, _ chinese: String) -> String { self.chinese ? chinese : english }
 
     static func signalTimestamp(_ raw: String) -> String {
-        guard let date = ISO8601DateFormatter().date(from: raw) else {
+        let fractional = ISO8601DateFormatter()
+        fractional.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        let date = fractional.date(from: raw) ?? ISO8601DateFormatter().date(from: raw)
+        guard let date else {
             return String(raw.prefix(16)).replacingOccurrences(of: "T", with: " ")
         }
         let formatter = DateFormatter()
